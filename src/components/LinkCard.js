@@ -4,13 +4,14 @@ import styled from "styled-components";
 
 const LinkCard = ({ heading = 'Title',
                       subheading = 'This is a subheading',
-                      link = "/live-events",
-                      type = "Link"
+                      link = "/live-events", style = "usefulLink",
+                      type = "internal", //Prop only needs to be passed in if it is external link
+                      color = "var(--dark)", backgroundColor="var(--white)"
                   }) => {
     return (
         <CardStyles>
             <div className="container">
-                { type === 'Link' ? (
+                { type.toLowerCase() === 'internal' ? (
                     <Link to={link}>
                         <div className="heading">{heading}</div>
                         <div className="subheading">{subheading}</div>

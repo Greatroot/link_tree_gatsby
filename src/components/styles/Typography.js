@@ -4,29 +4,29 @@ import JosefinBold from '../../assets/fonts/JosefinSlab-Bold.ttf';
 
 const Typography = createGlobalStyle`
   @font-face {
-    font-family: 'Josefin Regular';
+    font-family: 'JosefinSlab Regular';
     src: url(${JosefinRegular});
     font-style: normal;
   }
 
   @font-face {
-    font-family: 'Josefin Bold';
+    font-family: 'JosefinSlab Bold';
     src: url(${JosefinBold});
     font-style: normal;
   }
   
   html {
-    font-family: 'Josefin Regular';
-    color: var(--black);
+    font-family: 'JosefinSlab Regular';
+    color: var(--white);
   }
   
   * {
-    font-family: 'Josefin Regular';
-    color: var(--gray-1);
+    font-family: 'JosefinSlab Regular';
+    color: var(--white);
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Josefin Bold';
+    font-family: 'JosefinSlab Bold';
   }
 `;
 

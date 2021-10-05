@@ -20,13 +20,13 @@ export const GlobalStyle = createGlobalStyle`
       --blue: #64CBDC;
       --deep-dark: #403F4C;
       --white: white;
-      --black: #292929;
+      --dark: #292929;
     }
 
     html {
       font-size: 10px;
-      font-family: 'Roboto Mono', sans-serif;
-      background-color: var(--dark-bg);
+      font-family: 'Josefin Slab', sans-serif;
+      background-color: var(--light-bg);
     }
 
     ul, li {

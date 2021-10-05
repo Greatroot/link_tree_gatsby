@@ -1,29 +1,43 @@
-import * as React from "react"
+import React, {useEffect, useState, useRef} from 'react';
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import Airtable from "airtable";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+const Home = () => {
+    const [upcomingEvents, setUpcomingEvents] = useState([]);
+    const [usefulLinks, setUsefulLinks] = useState([]);
+    const base = new Airtable({ apiKey: 'keyQxHIDEz8hhTfXN'}).base('app0L5mjEUjDEKZl3')
+    const firstUpdate = useRef(true); // True if component hasn't mounted yet, false if it already has.
+    // Being used so that we can have the useEffect hook do 2 different things based
+    // on whether it has run for the first time or sometime after.
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
-  </Layout>
-)
+    useEffect(() => {
+        if(firstUpdate.current)
+        {
+            const table_name = "Link Tree Webapp"
+            base("Upcoming Events")
+                .select({ view: "Grid view"})
+                .eachPage((records, fetchNextPage) => {
+                    console.log(records);
+                    setUpcomingEvents(upcomingEvents.concat(records));
+                    fetchNextPage();
+                });
 
-export default IndexPage
+            base("Important Links")
+                .select({ view: "Grid view"})
+                .eachPage((records, fetchNextPage) => {
+                    console.log(records);
+                    setUsefulLinks(usefulLinks.concat(records));
+                    fetchNextPage();
+                });
+        }
+    }, []);
+
+    return (
+        <div>
+            Home
+        </div>
+    );
+};
+
+export default Home;

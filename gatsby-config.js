@@ -9,10 +9,32 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {
+      resolve: `gatsby-source-airtable`,
+      options: {
+        apiKey: `keyQxHIDEz8hhTfXN`, // may instead specify via env, see below
+        tables: [
+          {
+            baseId: `apppvRBO7pkSdMPOH`,
+            tableName: `Sections`,
+            tableView: `All`,
+            mapping: { 'Body': `text/markdown` },
+            tableLinks: [`Pages`],
+          },
+          {
+            baseId: `apppvRBO7pkSdMPOH`,
+            tableName: `Pages`,
+            tableView: `All`,
+            mapping: { 'Body': `text/markdown` },
+            tableLinks: [`Sections`],
+          },
+        ]
+      }
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/assets/images`,
       },
     },
     `gatsby-transformer-sharp`,

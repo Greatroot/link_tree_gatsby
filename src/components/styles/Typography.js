@@ -1,10 +1,10 @@
 import { createGlobalStyle } from "styled-components";
-import JosefinRegular from '../../assets/fonts/JosefinSlab-Regular.ttf';
+import JosefinRegular from '../../assets/fonts/JosefinSlab-Thin.ttf';
 import JosefinBold from '../../assets/fonts/JosefinSlab-Bold.ttf';
 
 const Typography = createGlobalStyle`
   @font-face {
-    font-family: 'JosefinSlab Regular';
+    font-family: 'JosefinSlab Thin';
     src: url(${JosefinRegular});
     font-style: normal;
   }
@@ -16,16 +16,16 @@ const Typography = createGlobalStyle`
   }
   
   html {
-    font-family: 'JosefinSlab Regular';
+    font-family: 'JosefinSlab Thin';
     color: var(--white);
   }
   
   * {
-    font-family: 'JosefinSlab Regular';
+    font-family: 'JosefinSlab Thin';
     color: var(--white);
   }
   
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2 {
     font-family: 'JosefinSlab Bold';
   }
 `;

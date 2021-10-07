@@ -1,42 +1,34 @@
 import * as React from "react"
-import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import Logo from "../assets/images/logo1.svg";
+import styled from "styled-components";
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
+const Header = () => {
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
+
+    return (
+        <HeaderStyles>
+            <div className="logo">
+                <img src={Logo} alt="Broadstreet Institute Logo" />
+            </div>
+        </HeaderStyles>
+    );
 }
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
+export default Header;
 
-export default Header
+const HeaderStyles = styled.div`
+  top: 0;
+  left: 0;
+  height: 13rem;
+  width: 100%;
+  padding: 1rem 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+    img {
+      width: 200px;
+    }
+`

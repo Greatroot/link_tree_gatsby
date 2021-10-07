@@ -6,20 +6,23 @@ const LinkCard = ({ heading = 'Title',
                       subheading = 'This is a subheading',
                       link = "/live-events", style = "usefulLink",
                       type = "internal", //Prop only needs to be passed in if it is external link
-                      color = "var(--dark)", backgroundColor="var(--white)"
+                      color = "#292929",
+                      backgroundColor="#64CBDC"
                   }) => {
+    // console.log(heading);
+
     return (
-        <CardStyles>
-            <div className="container">
+        <CardStyles backgroundColor={backgroundColor} color={color}>
+            <div className="button">
                 { type.toLowerCase() === 'internal' ? (
                     <Link to={link}>
-                        <div className="heading">{heading}</div>
-                        <div className="subheading">{subheading}</div>
+                        <h2 className="heading">{heading}</h2>
+                        <h3 className="subheading">{subheading}</h3>
                     </Link>
                 ) : (
                     <a href={link} target="_blank" rel="noreferrer">
-                        <div className="heading">{heading}</div>
-                        <div className="subheading">{subheading}</div>
+                        <h2 className="heading">{heading}</h2>
+                        <h3 className="subheading">{subheading}</h3>
                     </a>
                 )}
             </div>
@@ -30,7 +33,35 @@ const LinkCard = ({ heading = 'Title',
 export default LinkCard;
 
 const CardStyles = styled.div`
-  padding: 10rem 0;
+  //padding: 10rem 0;
+  margin-top: 2rem;
+  .button {
+    background-color: ${props => props.backgroundColor};
+    padding: 2em 2em;
+    border-radius: 2px;
+    //display: inline-block;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30rem;
+    height: auto;
+  }
   
+  .heading, .subheading{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+
+    color: ${props => props.color};
+  }
+  
+  .heading {
+    font-size: 5rem;
+  }
+  .subheading {
+    font-size: 2rem;
+  }
   
 `

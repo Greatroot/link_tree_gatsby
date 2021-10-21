@@ -23,7 +23,7 @@ const Home = () => {
             firstUpdate.current = false;
 
             const table_name = "Link Tree Webapp"
-            base("Upcoming Events")
+            base("Featured Links")
                 .select({ view: "Grid view"})
                 .eachPage((records, fetchNextPage) => {
                     // console.log(records);
@@ -89,7 +89,7 @@ const Home = () => {
                 <Header />
                 <div className="links">
                     <div className="upcoming__events">
-                        <h2 className="link__header">Upcoming Events</h2>
+                        <h2 className="link__header">Featured Links</h2>
                         {renderUpcomingEvents()}
                     </div>
                 </div>

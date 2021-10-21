@@ -38,7 +38,6 @@ const CardStyles = styled.div`
   .button {
     background-color: ${props => props.backgroundColor};
     padding: 2em 2em;
-    border-radius: 2px;
     //display: inline-block;
     
     display: flex;
@@ -46,6 +45,8 @@ const CardStyles = styled.div`
     align-items: center;
     width: 30rem;
     height: auto;
+    border-radius: 14px;
+
   }
   
   .heading, .subheading{
@@ -62,6 +63,13 @@ const CardStyles = styled.div`
   }
   .subheading {
     font-size: 2rem;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .button {
+      //margin: 10rem;
+      width: 768px;
+    }
   }
   
 `
